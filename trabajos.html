@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antes y Después · Clínica Dra. Yisel</title>
+    <meta name="description" content="Galería de casos reales de la Clínica Estomatológica Dra. Yisel. Resultados de diseño de sonrisa, implantes, ortodoncia y más." />
+    
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <style>
+        /* Estilos específicos para la galería de trabajos */
+        .hero-trabajos {
+            background: linear-gradient(135deg, #0b2a36 0%, #1a4a5a 100%);
+            padding: 50px 0 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-trabajos h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero-trabajos h1 i {
+            color: #7fc9db;
+        }
+
+        .hero-trabajos p {
+            font-size: 1.2rem;
+            color: #cae1ea;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trabajos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 40px 0 60px;
+        }
+
+        .trabajo-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e6f0f4;
+        }
+
+        .trabajo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+        }
+
+        .trabajo-card .imagenes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .trabajo-card .imagenes .img-container {
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            background: #eef3f7;
+        }
+
+        .trabajo-card .imagenes .img-container img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .trabajo-card .imagenes .etiqueta {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trabajo-card .imagenes .etiqueta.antes {
+            background: rgba(231, 76, 60, 0.85);
+            color: #fff;
+        }
+
+        .trabajo-card .imagenes .etiqueta.despues {
+            background: rgba(46, 204, 113, 0.85);
+            color: #fff;
+        }
+
+        .trabajo-card .info {
+            padding: 20px 22px 24px;
+        }
+
+        .trabajo-card .info h3 {
+            font-size: 1.2rem;
+            color: #08303d;
+            margin-bottom: 6px;
+        }
+
+        .trabajo-card .info .procedimiento {
+            color: #1f8a9e;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .trabajo-card .info .procedimiento i {
+            margin-right: 6px;
+        }
+
+        .trabajo-card .info p {
+            color: #4d6a7a;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .trabajo-card .info .fecha {
+            color: #8aa8b8;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Sin imágenes de prueba (placeholders) */
+        .placeholder-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 220px;
+            background: #e3ecf2;
+            color: #6a8e9e;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .placeholder-img i {
+            font-size: 2rem;
+            margin-right: 10px;
+            color: #1f8a9e;
+        }
+
+        @media (max-width: 768px) {
+            .hero-trabajos h1 {
+                font-size: 2rem;
+            }
+            .trabajos-grid {
+                grid-template-columns: 1fr;
+                padding: 20px 0 40px;
+            }
+            .trabajo-card .imagenes .img-container img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================= -->
+    <!-- HEADER -->
+    <!-- ========================================= -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Dra. Yisel <span>Estomatología</span></h1>
+                    <small>Tu sonrisa en las mejores manos</small>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="trabajos.html" class="active-link">Antes y Después</a></li>
+                    <li><a href="index.html#testimonios">Testimonios</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#contacto" class="btn-cta-nav">Agendar cita</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================= -->
+    <!-- HERO DE TRABAJOS -->
+    <!-- ========================================= -->
+    <section class="hero-trabajos">
+        <div class="container">
+            <h1><i class="fas fa-images"></i> Antes y Después</h1>
+            <p>
+                Resultados reales de mis pacientes. Cada sonrisa restaurada es
+                mi mayor satisfacción.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- GALERÍA DE TRABAJOS -->
+    <!-- ========================================= -->
+    <section>
+        <div class="container">
+            <div class="trabajos-grid">
+
+                <!-- ===== TRABAJO 1 ===== -->
+                <div class="trabajo-card">
+                    <div class="imagenes">
+                        <div class="img-container">
+                            <!-- Reemplaza con tu imagen: <img src="assets/img/caso1-antes.jpg" alt="Antes" /> -->
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Antes
+                            </div>
+                            <span class="etiqueta antes">Antes</span>
+                        </div>
+                        <div class="img-container">
+                            <!-- Reemplaza con tu imagen: <img src="assets/img/caso1-despues.jpg" alt="Después" /> -->
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Después
+                            </div>
+                            <span class="etiqueta despues">Después</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3>Diseño de Sonrisa</h3>
+                        <div class="procedimiento"><i class="fas fa-smile"></i> Carillas de porcelana</div>
+                        <p>Paciente con decoloración y desgaste dental. Se colocaron 8 carillas de porcelana para recuperar la armonía y estética de su sonrisa.</p>
+                        <span class="fecha"><i class="far fa-calendar-alt"></i> Caso realizado en 2025</span>
+                    </div>
+                </div>
+
+                <!-- ===== TRABAJO 2 ===== -->
+                <div class="trabajo-card">
+                    <div class="imagenes">
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Antes
+                            </div>
+                            <span class="etiqueta antes">Antes</span>
+                        </div>
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Después
+                            </div>
+                            <span class="etiqueta despues">Después</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3>Implante Dental</h3>
+                        <div class="procedimiento"><i class="fas fa-tooth"></i> Implante + Corona</div>
+                        <p>Pérdida de pieza dental por accidente. Se colocó implante de titanio y corona de zirconio con resultado natural y funcional.</p>
+                        <span class="fecha"><i class="far fa-calendar-alt"></i> Caso realizado en 2024</span>
+                    </div>
+                </div>
+
+                <!-- ===== TRABAJO 3 ===== -->
+                <div class="trabajo-card">
+                    <div class="imagenes">
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Antes
+                            </div>
+                            <span class="etiqueta antes">Antes</span>
+                        </div>
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Después
+                            </div>
+                            <span class="etiqueta despues">Después</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3>Ortodoncia Invisible</h3>
+                        <div class="procedimiento"><i class="fas fa-braces"></i> Alineadores transparentes</div>
+                        <p>Corrección de apiñamiento dental con alineadores invisibles. Tratamiento de 10 meses sin brackets ni molestias.</p>
+                        <span class="fecha"><i class="far fa-calendar-alt"></i> Caso realizado en 2025</span>
+                    </div>
+                </div>
+
+                <!-- ===== TRABAJO 4 ===== -->
+                <div class="trabajo-card">
+                    <div class="imagenes">
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Antes
+                            </div>
+                            <span class="etiqueta antes">Antes</span>
+                        </div>
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Después
+                            </div>
+                            <span class="etiqueta despues">Después</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3>Blanqueamiento Dental</h3>
+                        <div class="procedimiento"><i class="fas fa-smile"></i> Blanqueamiento profesional</div>
+                        <p>Paciente con manchas y decoloración por tabaco. Se aplicó blanqueamiento ambulatorio con resultados visibles en 2 semanas.</p>
+                        <span class="fecha"><i class="far fa-calendar-alt"></i> Caso realizado en 2026</span>
+                    </div>
+                </div>
+
+                <!-- ===== TRABAJO 5 ===== -->
+                <div class="trabajo-card">
+                    <div class="imagenes">
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Antes
+                            </div>
+                            <span class="etiqueta antes">Antes</span>
+                        </div>
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Después
+                            </div>
+                            <span class="etiqueta despues">Después</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3>Prótesis Dental</h3>
+                        <div class="procedimiento"><i class="fas fa-teeth"></i> Prótesis removible</div>
+                        <p>Paciente con pérdida de varias piezas. Se realizó prótesis removible de acrílico con ganchos estéticos para recuperar la función masticatoria.</p>
+                        <span class="fecha"><i class="far fa-calendar-alt"></i> Caso realizado en 2024</span>
+                    </div>
+                </div>
+
+                <!-- ===== TRABAJO 6 ===== -->
+                <div class="trabajo-card">
+                    <div class="imagenes">
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Antes
+                            </div>
+                            <span class="etiqueta antes">Antes</span>
+                        </div>
+                        <div class="img-container">
+                            <div class="placeholder-img">
+                                <i class="fas fa-image"></i> Después
+                            </div>
+                            <span class="etiqueta despues">Después</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3>Rehabilitación Oral</h3>
+                        <div class="procedimiento"><i class="fas fa-heartbeat"></i> Rehabilitación integral</div>
+                        <p>Caso complejo con desgaste severo y ausencia de piezas. Se realizó rehabilitación con coronas, carillas e implantes en 6 meses.</p>
+                        <span class="fecha"><i class="far fa-calendar-alt"></i> Caso realizado en 2025</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Clínica Estomatológica Dra. Yisel</h4>
+                    <p style="color:#b8d0da; margin-bottom:6px;">
+                        Atención personalizada y de excelencia para toda la familia.
+                    </p>
+                    <p style="color:#6a8e9e; font-size:0.9rem;">
+                        <i class="fas fa-map-marker-alt"></i> Calle 5ta #123 e/ 8 y 10
+                    </p>
+                </div>
+                <div>
+                    <h4>Enlaces rápidos</h4>
+                    <a href="index.html#sobre-mi">Sobre mí</a>
+                    <a href="index.html#servicios">Servicios</a>
+                    <a href="trabajos.html">Antes y Después</a>
+                    <a href="index.html#testimonios">Testimonios</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="privacidad.html">Política de privacidad</a>
+                    <a href="index.html#contacto">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 Clínica Estomatológica Dra. Yisel
+                <small>Atendido personalmente por la Dra. Yisel. Tu sonrisa merece mi tiempo completo.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================= -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

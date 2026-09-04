@@ -1,0 +1,570 @@
+/* ============================================
+   RESET Y ESTILOS GENERALES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #1e2b3a;
+    background: #f8fafc;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 0;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0b3b4b;
+}
+
+.logo span {
+    font-weight: 300;
+    color: #2c7a8c;
+}
+
+.logo small {
+    display: block;
+    font-size: 0.7rem;
+    color: #5a7a8a;
+    font-weight: 400;
+}
+
+.logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+nav a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1e2b3a;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #1f8a9e;
+}
+
+.btn-cta-nav {
+    background: #1f8a9e;
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-cta-nav:hover {
+    background: #0b6b7e;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.6rem;
+    color: #08303d;
+    cursor: pointer;
+}
+
+/* ============================================
+   HERO BANNER - SOLO IMAGEN (SIN TEXTO)
+   ============================================ */
+.hero-banner {
+    width: 100%;
+    min-height: 600px;
+    height: auto;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: block;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn-primary {
+    background: #1f8a9e;
+    color: #fff;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: #0b6b7e;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #08303d;
+    padding: 14px 34px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid #1f8a9e;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: #1f8a9e;
+    color: #fff;
+}
+
+/* ============================================
+   SECCIONES
+   ============================================ */
+section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #08303d;
+    margin-bottom: 12px;
+}
+
+.section-sub {
+    text-align: center;
+    color: #4d6a7a;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.bg-white {
+    background: #ffffff;
+}
+
+/* ============================================
+   SOBRE MÍ
+   ============================================ */
+.sobre-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sobre-texto {
+    flex: 2;
+    min-width: 280px;
+}
+
+.sobre-texto h3 {
+    font-size: 1.8rem;
+    color: #0b3b4b;
+    margin-bottom: 12px;
+}
+
+.sobre-texto p {
+    margin-bottom: 14px;
+    color: #2b4656;
+}
+
+.sobre-firma {
+    font-style: italic;
+    color: #1f8a9e;
+    font-weight: 500;
+}
+
+.sobre-foto {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.sobre-foto img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin: 0 auto;
+}
+
+/* ============================================
+   SERVICIOS
+   ============================================ */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.servicio-card {
+    background: #fff;
+    padding: 28px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid #e6f0f4;
+}
+
+.servicio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.servicio-card i {
+    font-size: 2.6rem;
+    color: #1f8a9e;
+    margin-bottom: 14px;
+}
+
+.servicio-card h4 {
+    font-size: 1.2rem;
+    color: #08303d;
+    margin-bottom: 8px;
+}
+
+.servicio-card p {
+    font-size: 0.95rem;
+    color: #4d6a7a;
+}
+
+/* ============================================
+   TESTIMONIOS
+   ============================================ */
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.testimonio {
+    background: #fff;
+    padding: 24px 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-left: 4px solid #1f8a9e;
+}
+
+.testimonio p {
+    font-style: italic;
+    color: #1e3a4a;
+    margin-bottom: 10px;
+}
+
+.testimonio .autor {
+    font-weight: 600;
+    color: #08303d;
+}
+
+.testimonio .detalle {
+    font-size: 0.85rem;
+    color: #6a8a9a;
+}
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq-item {
+    background: #fff;
+    padding: 18px 24px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e6f0f4;
+}
+
+.faq-item h4 {
+    font-size: 1.05rem;
+    color: #08303d;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.faq-item h4 i {
+    color: #1f8a9e;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.faq-item p {
+    margin-top: 10px;
+    color: #2b4656;
+    padding-right: 20px;
+}
+
+/* ============================================
+   CONTACTO / URGENCIAS
+   ============================================ */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.contacto-info h3 {
+    font-size: 1.6rem;
+    color: #08303d;
+    margin-bottom: 12px;
+}
+
+.contacto-info p {
+    margin-bottom: 18px;
+    color: #2b4656;
+}
+
+.contacto-info ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.contacto-info li {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contacto-info li i {
+    width: 28px;
+    color: #1f8a9e;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.contacto-info li a {
+    color: #1f8a9e;
+    transition: color 0.2s;
+}
+
+.contacto-info li a:hover {
+    color: #0b6b7e;
+}
+
+.contacto-urgencia {
+    background: #f0f6fa;
+    padding: 28px 24px;
+    border-radius: 16px;
+    border-left: 6px solid #e74c3c;
+}
+
+.contacto-urgencia h4 {
+    font-size: 1.3rem;
+    color: #b03a2e;
+    margin-bottom: 8px;
+}
+
+.contacto-urgencia p {
+    color: #1e3a4a;
+    margin-bottom: 16px;
+}
+
+.contacto-urgencia .btn-urgencia {
+    background: #e74c3c;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.contacto-urgencia .btn-urgencia:hover {
+    background: #c0392b;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background: #0b2a36;
+    color: #d4e4ec;
+    padding: 40px 0 24px;
+    margin-top: 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-grid h4 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.footer-grid a {
+    display: block;
+    color: #b8d0da;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.footer-grid a:hover {
+    color: #fff;
+}
+
+.footer-copy {
+    border-top: 1px solid #1d4a5a;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #a0beca;
+}
+
+.footer-copy small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #6a8e9e;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .header-flex {
+        flex-wrap: wrap;
+    }
+
+    nav ul {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 8px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .hero-banner {
+        min-height: 250px;
+    }
+
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        min-height: 180px;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .sobre-foto img {
+        width: 160px;
+        height: 160px;
+    }
+}
