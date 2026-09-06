@@ -202,7 +202,7 @@ section {
     min-width: 280px;
 }
 
-.sobre-texto h3 {
+.sobre-texto h2 {
     font-size: 1.8rem;
     color: #0b3b4b;
     margin-bottom: 12px;
@@ -425,6 +425,13 @@ section {
     justify-content: space-between;
     align-items: center;
     user-select: none;
+}
+
+.faq-item h4:focus-visible,
+.menu-toggle:focus-visible {
+    outline: 3px solid #1f8a9e;
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 .faq-item h4 i {
