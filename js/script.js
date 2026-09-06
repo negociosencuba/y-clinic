@@ -1,72 +1,101 @@
 /**
  * ============================================
- * SCRIPT.JS - ClÃ­nica EstomatolÃ³gica Dra. Yisel
+ * SCRIPT.JS - Clínica Estomatológica Dra. Yisel
  * ============================================
  */
 
 document.addEventListener('DOMContentLoaded', function() {
 
     // ==========================================
-    // 1. FAQ - AcordeÃ³n interactivo
+    // 1. FAQ - Acordeón interactivo
     // ==========================================
     const faqItems = document.querySelectorAll('.faq-item');
+
+    const abrirFaq = function(question, answer, icon) {
+        answer.style.display = 'block';
+        question.setAttribute('aria-expanded', 'true');
+        if (icon) icon.className = 'fas fa-chevron-up';
+    };
+
+    const cerrarFaq = function(question, answer, icon) {
+        answer.style.display = 'none';
+        question.setAttribute('aria-expanded', 'false');
+        if (icon) icon.className = 'fas fa-chevron-down';
+    };
 
     faqItems.forEach((item, index) => {
         const question = item.querySelector('h4');
         const answer = item.querySelector('p');
         const icon = question.querySelector('i');
 
+        // Hacerla enfocable y anunciable como control expandible
+        question.setAttribute('tabindex', '0');
+        question.setAttribute('role', 'button');
+
         if (index === 0) {
-            answer.style.display = 'block';
-            if (icon) icon.className = 'fas fa-chevron-up';
+            abrirFaq(question, answer, icon);
         } else {
-            answer.style.display = 'none';
-            if (icon) icon.className = 'fas fa-chevron-down';
+            cerrarFaq(question, answer, icon);
         }
 
-        question.addEventListener('click', function() {
+        const toggleFaq = function() {
             const isOpen = answer.style.display === 'block';
 
             faqItems.forEach((otherItem) => {
+                const otherQuestion = otherItem.querySelector('h4');
                 const otherAnswer = otherItem.querySelector('p');
-                const otherIcon = otherItem.querySelector('h4 i');
-                otherAnswer.style.display = 'none';
-                if (otherIcon) otherIcon.className = 'fas fa-chevron-down';
+                const otherIcon = otherQuestion.querySelector('i');
+                cerrarFaq(otherQuestion, otherAnswer, otherIcon);
             });
 
             if (!isOpen) {
-                answer.style.display = 'block';
-                if (icon) icon.className = 'fas fa-chevron-up';
+                abrirFaq(question, answer, icon);
+            }
+        };
+
+        question.addEventListener('click', toggleFaq);
+
+        // Soporte de teclado: Enter y Espacio abren/cierran la respuesta
+        question.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                toggleFaq();
             }
         });
     });
 
     // ==========================================
-    // 2. MenÃº hamburguesa para mÃ³viles
+    // 2. Menú hamburguesa para móviles
     // ==========================================
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.querySelector('nav');
 
     if (menuToggle && nav) {
-        menuToggle.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            const icon = this.querySelector('i');
+        const toggleMenu = function() {
+            const isOpen = nav.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            const icon = menuToggle.querySelector('i');
             if (icon) {
-                if (icon.classList.contains('fa-bars')) {
-                    icon.className = 'fas fa-times';
-                } else {
-                    icon.className = 'fas fa-bars';
-                }
+                icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+            }
+        };
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Soporte de teclado: Enter y Espacio activan el menÃº igual que un clic
+        menuToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                toggleMenu();
             }
         });
 
         nav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
                 nav.classList.remove('active');
-                if (menuToggle) {
-                    const icon = menuToggle.querySelector('i');
-                    if (icon) icon.className = 'fas fa-bars';
-                }
+                menuToggle.setAttribute('aria-expanded', 'false');
+                const icon = menuToggle.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
             });
         });
     }
@@ -94,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ==========================================
-    // 4. AÃ±o actual en el footer (automÃ¡tico)
+    // 4. Año actual en el footer (automático)
     // ==========================================
     const footerYear = document.querySelector('.footer-copy');
     if (footerYear) {
@@ -102,5 +131,28 @@ document.addEventListener('DOMContentLoaded', function() {
         footerYear.innerHTML = footerYear.innerHTML.replace('2026', currentYear);
     }
 
-    console.log('ðŸš€ ClÃ­nica EstomatolÃ³gica Dra. Yisel cargada correctamente.');
+    // ==========================================
+    // 5. FUNCIONALIDAD "VER MÁS" EN SERVICIOS
+    // ==========================================
+    const botonesVerMas = document.querySelectorAll('.btn-ver-mas');
+
+    botonesVerMas.forEach(function(boton) {
+        boton.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const card = this.closest('.servicio-card');
+            const detalle = card.querySelector('.servicio-detalle');
+            const icono = this.querySelector('i');
+
+            if (detalle.style.display === 'none' || detalle.style.display === '') {
+                detalle.style.display = 'block';
+                this.innerHTML = 'Ver menos <i class="fas fa-chevron-up"></i>';
+            } else {
+                detalle.style.display = 'none';
+                this.innerHTML = 'Ver m&aacute;s <i class="fas fa-chevron-down"></i>';
+            }
+        });
+    });
+
+    console.log(' Clínica Estomatológica Dra. Yisel cargada correctamente.');
 });
