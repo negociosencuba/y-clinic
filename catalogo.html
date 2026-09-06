@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Servicios Dentales en Santiago de Cuba | Clínica Dra. Yisel</title>
+    <meta name="description" content="Conoce todos los tratamientos de la Clínica Estomatológica Dra. Yisel en Santiago de Cuba: restauraciones, limpiezas, prótesis y puentes. Agenda tu cita por WhatsApp." />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Datos estructurados para buscadores -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Clínica Estomatológica Dra. Yisel",
+      "telephone": "+53 54964428",
+      "email": "y-clinic@gmail.com",
+      "areaServed": "Santiago de Cuba",
+      "sameAs": ["https://wa.me/5354964428"]
+    }
+    </script>
+
+    <style>
+        /* ===== RESET Y BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #08303d;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        img { max-width: 100%; }
+
+        /* ===== BANNER ===== */
+        .banner-header {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .banner-header img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ===== ENCABEZADO ===== */
+        .catalogo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .catalogo-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #08303d;
+        }
+
+        .catalogo-header h1 span {
+            color: #1f8a9e;
+        }
+
+        .catalogo-header p {
+            font-size: 1.2rem;
+            color: #4d6a7a;
+            margin-top: 10px;
+        }
+
+        .header-acciones {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .volver-link,
+        .cita-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 28px;
+            border-radius: 50px;
+            transition: 0.3s;
+            border: 2px solid #1f8a9e;
+        }
+
+        .volver-link {
+            color: #1f8a9e;
+            background: #ffffff;
+        }
+
+        .volver-link:hover {
+            background: #eaf6f8;
+        }
+
+        .cita-link {
+            color: #ffffff;
+            background: #25d366;
+            border-color: #25d366;
+        }
+
+        .cita-link:hover {
+            background: #1ebe57;
+        }
+
+        /* ===== NAVEGACIÓN DE CATEGORÍAS ===== */
+        .categorias-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 34px 0 46px;
+        }
+
+        .categorias-nav a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1f8a9e;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: #eaf6f8;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .categorias-nav a:hover,
+        .categorias-nav a:focus-visible {
+            background: #1f8a9e;
+            color: #ffffff;
+        }
+
+        /* ===== SECCIONES DE CATEGORÍA ===== */
+        .categoria-seccion {
+            margin-bottom: 56px;
+            scroll-margin-top: 20px;
+        }
+
+        .categoria-titulo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #08303d;
+            margin-bottom: 6px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2eef4;
+        }
+
+        .categoria-subtitulo {
+            font-size: 0.95rem;
+            color: #4d6a7a;
+            margin-bottom: 24px;
+        }
+
+        /* ===== GRID DE SERVICIOS ===== */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        /* ===== TARJETA DE SERVICIO ===== */
+        .servicio-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px 25px 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid rgba(31, 138, 158, 0.12);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(31, 138, 158, 0.15);
+            border-color: #1f8a9e;
+        }
+
+        .servicio-card i.icono-servicio {
+            font-size: 2.4rem;
+            color: #ffffff;
+            margin-bottom: 16px;
+            background: #1f8a9e;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+        }
+
+        .servicio-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #08303d;
+            margin-bottom: 8px;
+        }
+
+        .servicio-card .descripcion-corta {
+            font-size: 0.98rem;
+            color: #2c4d5e;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            flex: 1;
+        }
+
+        .servicio-datos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .servicio-dato {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #1f8a9e;
+            background: #eaf6f8;
+            padding: 5px 12px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .servicio-card .servicio-detalle {
+            font-size: 0.92rem;
+            color: #4d6a7a;
+            line-height: 1.6;
+            margin-top: 0;
+            padding-top: 0;
+            border-top: 1px solid #e2eef4;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease, padding-top 0.35s ease;
+        }
+
+        .servicio-card .servicio-detalle.abierto {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 12px;
+            padding-top: 14px;
+        }
+
+        .servicio-card .servicio-detalle strong {
+            color: #08303d;
+        }
+
+        .servicio-acciones {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-ver-mas {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1f8a9e;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-ver-mas:hover {
+            color: #0d5c6b;
+        }
+
+        .btn-ver-mas i {
+            font-size: 0.75rem;
+            margin-left: 4px;
+            background: none;
+            width: auto;
+            height: auto;
+            color: #1f8a9e;
+        }
+
+        .btn-whatsapp-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: #25d366;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: background 0.2s;
+        }
+
+        .btn-whatsapp-card:hover {
+            background: #1ebe57;
+        }
+
+        /* ===== PIE DE PÁGINA ===== */
+        .catalogo-footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 20px;
+            background: #1f8a9e;
+            border-radius: 16px;
+            color: #ffffff;
+            font-size: 0.95rem;
+        }
+
+        .catalogo-footer a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .catalogo-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .catalogo-footer .footer-icon {
+            margin: 0 6px;
+        }
+
+        /* ===== ACCESIBILIDAD: FOCO VISIBLE ===== */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #08303d;
+            outline-offset: 2px;
+        }
+
+        /* ===== MOVIMIENTO REDUCIDO ===== */
+        @media (prefers-reduced-motion: reduce) {
+            .servicio-card,
+            .servicio-detalle,
+            .volver-link,
+            .cita-link,
+            .categorias-nav a {
+                transition: none !important;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .catalogo-header h1 {
+                font-size: 2rem;
+            }
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+            .servicio-card {
+                padding: 22px 18px;
+            }
+            .catalogo-footer {
+                font-size: 0.85rem;
+                padding: 20px 16px;
+            }
+            .banner-header img {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================= -->
+    <!-- BANNER PRINCIPAL -->
+    <!-- ========================================= -->
+    <div class="banner-header">
+        <img src="assets/img/banner.png" alt="Dra. Yisel Clínica Estomatológica" loading="lazy" />
+    </div>
+
+    <div class="container">
+
+        <!-- ===== ENCABEZADO ===== -->
+        <div class="catalogo-header">
+            <h1>Catálogo de <span>Servicios</span></h1>
+            <p>Conoce en detalle cada tratamiento que ofrecemos</p>
+            <div class="header-acciones">
+                <a href="index.html" class="volver-link"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+                <a href="https://wa.me/5354964428?text=Hola%2C%20quiero%20agendar%20una%20consulta" class="cita-link" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Agendar cita</a>
+            </div>
+        </div>
+
+        <!-- ===== NAVEGACIÓN DE CATEGORÍAS ===== -->
+        <nav class="categorias-nav" aria-label="Categorías de servicios">
+            <a href="#restauraciones">Restauraciones</a>
+            <a href="#prevencion">Prevención</a>
+            <a href="#protesis">Prótesis y puentes</a>
+        </nav>
+
+        <!-- ===== CATEGORÍA: RESTAURACIONES ===== -->
+        <section class="categoria-seccion" id="restauraciones">
+            <h2 class="categoria-titulo">Restauraciones y Empastes</h2>
+            <p class="categoria-subtitulo">Tratamientos para reparar, proteger o reconstruir dientes afectados por caries, fracturas o desgaste.</p>
+
+            <div class="servicios-grid">
+
+                <!-- 1. Obturación Temporal -->
+                <div class="servicio-card">
+                    <i class="fas fa-tooth icono-servicio" aria-hidden="true"></i>
+                    <h4>Obturación Temporal</h4>
+                    <p class="descripcion-corta">Protección inmediata mientras llega el tratamiento definitivo.</p>
+                    <div class="servicio-datos">
+                        <span class="servicio-dato"><i class="fas fa-calendar-check" aria-hidden="true"></i> 1 cita</span>
+                        <span class="servicio-dato"><i class="fas fa-bolt" aria-hidden="true"></i> Indoloro</span>
+                    </div>
+                    <div class="servicio-detalle" id="detalle-1">
+                        Consiste en colocar un material provisional en el diente afectado para resguardar la cavidad de bacterias, aliviar la sensibilidad y evitar fracturas mientras se programa el tratamiento final (como una endodoncia o una caries profunda). Es un procedimiento rápido, indoloro y que actúa como un "escudo" hasta que el diente esté listo para su restauración permanente.
+                    </div>
+                    <div class="servicio-acciones">
+                        <button class="btn-ver-mas" aria-expanded="false" aria-controls="detalle-1">Ver más <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <a class="btn-whatsapp-card" target="_blank" rel="noopener" href="https://wa.me/5354964428?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Obturaci%C3%B3n%20Temporal"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar</a>
+                    </div>
+                </div>
+
+                <!-- 2. Resinas Simples -->
+                <div class="servicio-card">
+                    <i class="fas fa-smile icono-servicio" aria-hidden="true"></i>
+                    <h4>Resinas Simples</h4>
+                    <p class="descripcion-corta">Restauración estética y funcional para caries pequeñas o fracturas leves.</p>
+                    <div class="servicio-datos">
+                        <span class="servicio-dato"><i class="fas fa-calendar-check" aria-hidden="true"></i> 1 cita</span>
+                        <span class="servicio-dato"><i class="fas fa-palette" aria-hidden="true"></i> Color natural</span>
+                    </div>
+                    <div class="servicio-detalle" id="detalle-2">
+                        Consiste en aplicar un material compuesto del color del diente para rellenar cavidades pequeñas o reparar bordes desgastados y fracturas mínimas. Es un procedimiento rápido, sin necesidad de desgastar demasiado la estructura dental, y se realiza en una sola cita. El resultado es natural, resistente y se integra a la perfección con tu sonrisa.
+                    </div>
+                    <div class="servicio-acciones">
+                        <button class="btn-ver-mas" aria-expanded="false" aria-controls="detalle-2">Ver más <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <a class="btn-whatsapp-card" target="_blank" rel="noopener" href="https://wa.me/5354964428?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Resinas%20Simples"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar</a>
+                    </div>
+                </div>
+
+                <!-- 3. Resinas Compuestas -->
+                <div class="servicio-card">
+                    <i class="fas fa-tooth icono-servicio" aria-hidden="true"></i>
+                    <h4>Resinas Compuestas</h4>
+                    <p class="descripcion-corta">La solución estética y duradera para devolverle la forma y función a tu diente.</p>
+                    <div class="servicio-datos">
+                        <span class="servicio-dato"><i class="fas fa-calendar-check" aria-hidden="true"></i> 1 cita</span>
+                        <span class="servicio-dato"><i class="fas fa-shield-alt" aria-hidden="true"></i> Alta resistencia</span>
+                    </div>
+                    <div class="servicio-detalle" id="detalle-3">
+                        Este procedimiento utiliza un material de alta resistencia compuesto por partículas de cerámica y resina, que se adhiere químicamente al diente mediante un sistema de grabado ácido y adhesivo. Ideal para restaurar caries de tamaño mediano a grande, reconstruir ángulos rotos, cerrar diastemas (separaciones) o cambiar la forma de los dientes. Se talla en la misma cita, logrando un ajuste perfecto, una mordida equilibrada y un acabado pulido con brillo natural. Soporta mayor fuerza masticatoria y se usa en dientes posteriores (molares) o en restauraciones más extensas.
+                    </div>
+                    <div class="servicio-acciones">
+                        <button class="btn-ver-mas" aria-expanded="false" aria-controls="detalle-3">Ver más <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <a class="btn-whatsapp-card" target="_blank" rel="noopener" href="https://wa.me/5354964428?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Resinas%20Compuestas"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar</a>
+                    </div>
+                </div>
+
+                <!-- 4. Resinas Complejas (Reconstrucción) -->
+                <div class="servicio-card">
+                    <i class="fas fa-syringe icono-servicio" aria-hidden="true"></i>
+                    <h4>Resinas Complejas (Reconstrucción)</h4>
+                    <p class="descripcion-corta">Devolvemos la anatomía perdida con técnicas avanzadas.</p>
+                    <div class="servicio-datos">
+                        <span class="servicio-dato"><i class="fas fa-calendar-check" aria-hidden="true"></i> 1 cita</span>
+                        <span class="servicio-dato"><i class="fas fa-layer-group" aria-hidden="true"></i> Reconstrucción total</span>
+                    </div>
+                    <div class="servicio-detalle" id="detalle-4">
+                        Este procedimiento está indicado cuando el diente ha perdido gran parte de su estructura por caries extensas, fracturas profundas o desgaste severo. No se trata de un simple "relleno", sino de una reconstrucción tridimensional donde el odontólogo esculpe capa por capa el diente, recreando sus cúspides, bordes y relieves naturales. Se utilizan resinas de última generación con alta carga de partículas cerámicas, que ofrecen una resistencia excepcional a la mordida y un resultado estético impecable. Todo se realiza en una sola cita, devolviendo al diente su forma, función y armonía con la sonrisa.
+                    </div>
+                    <div class="servicio-acciones">
+                        <button class="btn-ver-mas" aria-expanded="false" aria-controls="detalle-4">Ver más <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <a class="btn-whatsapp-card" target="_blank" rel="noopener" href="https://wa.me/5354964428?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Resinas%20Complejas"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar</a>
+                    </div>
+                </div>
+
+                <!-- 5. Amalgamas -->
+                <div class="servicio-card">
+                    <i class="fas fa-shield-alt icono-servicio" aria-hidden="true"></i>
+                    <h4>Amalgamas</h4>
+                    <p class="descripcion-corta">Fortaleza y durabilidad probada para las zonas de mayor desgaste.</p>
+                    <div class="servicio-datos">
+                        <span class="servicio-dato"><i class="fas fa-calendar-check" aria-hidden="true"></i> 1 cita</span>
+                        <span class="servicio-dato"><i class="fas fa-hourglass-half" aria-hidden="true"></i> Larga duración</span>
+                    </div>
+                    <div class="servicio-detalle" id="detalle-5">
+                        Es una restauración elaborada con una aleación de metales (plata, estaño, cobre y mercurio) que se caracteriza por su alta resistencia al desgaste y a la compresión. Ideal para cavidades profundas en molares y premolares, donde la fuerza masticatoria es mayor. Su colocación es rápida, no requiere de un campo seco absoluto como las resinas y tiene una vida útil muy prolongada. Aunque su color metálico la hace menos estética, sigue siendo una opción confiable y económica para dientes posteriores que no comprometen la sonrisa.
+                    </div>
+                    <div class="servicio-acciones">
+                        <button class="btn-ver-mas" aria-expanded="false" aria-controls="detalle-5">Ver más <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <a class="btn-whatsapp-card" target="_blank" rel="noopener" href="https://wa.me/5354964428?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Amalgamas"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== CATEGORÍA: PREVENCIÓN ===== -->
+        <section class="categoria-seccion" id="prevencion">
+            <h2 class="categoria-titulo">Prevención y Limpieza</h2>
+            <p class="categoria-subtitulo">Cuidados periódicos para mantener tu salud bucal y prevenir enfermedades.</p>
+
+            <div class="servicios-grid">
+
+                <!-- 6. Limpiezas Profesionales -->
+                <div class="servicio-card">
+                    <i class="fas fa-hand-sparkles icono-servicio" aria-hidden="true"></i>
+                    <h4>Limpiezas Profesionales (Profilaxis)</h4>
+                    <p class="descripcion-corta">Más que una limpieza, una inversión en tu salud general.</p>
+                    <div class="servicio-datos">
+                        <span class="servicio-dato"><i class="fas fa-redo" aria-hidden="true"></i> Cada 6 meses</span>
+                        <span class="servicio-dato"><i class="fas fa-tint" aria-hidden="true"></i> Incluye flúor</span>
+                    </div>
+                    <div class="servicio-detalle" id="detalle-6">
+                        Consiste en la eliminación de la placa bacteriana y el sarro (cálculo dental) acumulados en la superficie de los dientes y debajo de las encías. El procedimiento se realiza con instrumentos ultrasónicos que vibran a alta frecuencia para desprender los depósitos duros, seguido de un pulido con cepillos y pastas especiales que dejan la superficie lisa y brillante. Además, se complementa con la aplicación tópica de flúor para fortalecer el esmalte. No solo mejora la estética y el aliento, sino que previene la gingivitis, la periodontitis y enfermedades sistémicas asociadas a la inflamación bucal (como problemas cardíacos o diabetes). Se recomienda realizarla cada 6 meses.
+                    </div>
+                    <div class="servicio-acciones">
+                        <button class="btn-ver-mas" aria-expanded="false" aria-controls="detalle-6">Ver más <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <a class="btn-whatsapp-card" target="_blank" rel="noopener" href="https://wa.me/5354964428?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Limpieza%20Profesional"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== CATEGORÍA: PRÓTESIS Y PUENTES ===== -->
+        <section class="categoria-seccion" id="protesis">
+            <h2 class="categoria-titulo">Prótesis y Rehabilitación Fija</h2>
+            <p class="categoria-subtitulo">Soluciones para reemplazar dientes ausentes y recuperar tu sonrisa completa.</p>
+
+            <div class="servicios-grid">
+
+                <!-- 7. Prótesis Totales y Parciales -->
+                <div class="servicio-card">
+                    <i class="fas fa-teeth-open icono-servicio" aria-hidden="true"></i>
+                    <h4>Prótesis Totales y Parciales</h4>
+                    <p class="descripcion-corta">Recupera tu sonrisa y tu confianza con una nueva dentadura.</p>
+                    <div class="servicio-datos">
+                        <span class="servicio-dato"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Varias citas</span>
+                        <span class="servicio-dato"><i class="fas fa-hand-holding-medical" aria-hidden="true"></i> Removible</span>
+                    </div>
+                    <div class="servicio-detalle" id="detalle-7">
+                        <strong>Prótesis Totales:</strong> Indicada para pacientes que han perdido la totalidad de los dientes en una o ambas arcadas. Estructura de acrílico que se apoya directamente sobre las encías, devolviendo estética, capacidad masticatoria y previniendo el hundimiento de los labios.<br><br>
+                        <strong>Prótesis Parciales Removibles:</strong> Para reemplazar dientes faltantes sin dañar los sanos. Se fijan mediante ganchos metálicos o estructuras de nylon flexible que se adaptan al color de la encía. Son removibles para facilitar la higiene y evitan la migración de los dientes adyacentes.
+                    </div>
+                    <div class="servicio-acciones">
+                        <button class="btn-ver-mas" aria-expanded="false" aria-controls="detalle-7">Ver más <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <a class="btn-whatsapp-card" target="_blank" rel="noopener" href="https://wa.me/5354964428?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Pr%C3%B3tesis"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar</a>
+                    </div>
+                </div>
+
+                <!-- 8. Puentes Fijos Anteriores -->
+                <div class="servicio-card">
+                    <i class="fas fa-smile-wink icono-servicio" aria-hidden="true"></i>
+                    <h4>Puentes Fijos Anteriores</h4>
+                    <p class="descripcion-corta">Devuelve la armonía de tu sonrisa sin necesidad de cirugía.</p>
+                    <div class="servicio-datos">
+                        <span class="servicio-dato"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Varias citas</span>
+                        <span class="servicio-dato"><i class="fas fa-gem" aria-hidden="true"></i> Zirconio/cerámica</span>
+                    </div>
+                    <div class="servicio-detalle" id="detalle-8">
+                        Indicado para reemplazar uno o varios dientes faltantes en la zona frontal, utilizando los dientes adyacentes como pilares. Se tallan ligeramente esos dientes de soporte y se coloca una estructura de metal o cerámica (zirconio o metal-cerámica) que sostiene los dientes artificiales en el espacio vacío. El resultado es una pieza fija, estable y estéticamente impecable, que se integra a la perfección con el color, la forma y la translucidez de tus dientes naturales. Al ser de zirconio o cerámica pura, ofrece una estética superior sin el antiestético borde metálico.
+                    </div>
+                    <div class="servicio-acciones">
+                        <button class="btn-ver-mas" aria-expanded="false" aria-controls="detalle-8">Ver más <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <a class="btn-whatsapp-card" target="_blank" rel="noopener" href="https://wa.me/5354964428?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Puentes%20Fijos"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== PIE ===== -->
+        <div class="catalogo-footer">
+            <p><i class="fas fa-heart footer-icon" style="color: #ff6b6b;"></i> Clínica Estomatológica Dra. Yisel <i class="fas fa-heart footer-icon" style="color: #ff6b6b;"></i></p>
+            <p style="margin-top: 6px; font-size: 0.9rem;">
+                <i class="fas fa-phone"></i> +53 54964428 &nbsp;|&nbsp;
+                <i class="fab fa-whatsapp"></i> <a href="https://wa.me/5354964428" target="_blank" rel="noopener">WhatsApp</a> &nbsp;|&nbsp;
+                <i class="fas fa-envelope"></i> y-clinic@gmail.com
+            </p>
+            <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.85;">
+                Tu sonrisa en las mejores manos
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const botones = document.querySelectorAll('.btn-ver-mas');
+
+            botones.forEach(function(boton) {
+                boton.addEventListener('click', function() {
+                    const card = this.closest('.servicio-card');
+                    const detalle = card.querySelector('.servicio-detalle');
+                    const abierto = detalle.classList.toggle('abierto');
+
+                    this.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+                    this.innerHTML = abierto
+                        ? 'Ver menos <i class="fas fa-chevron-up" aria-hidden="true"></i>'
+                        : 'Ver m&aacute;s <i class="fas fa-chevron-down" aria-hidden="true"></i>';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

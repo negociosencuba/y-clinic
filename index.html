@@ -4,8 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clínica Estomatológica Dra. Yisel</title>
-    <meta name="description" content="Clínica Estomatológica Dra. Yisel. Atención personalizada en estética dental, implantes, ortodoncia y urgencias. Más de 10 años de experiencia en Cuba." />
-    
+    <meta name="description" content="Clínica Estomatológica Dra. Yisel en Santiago de Cuba. Atención personalizada en estética dental y urgencias. Más de 15 años de experiencia." />
+
+    <!-- Open Graph / redes sociales (actualiza og:url con tu dominio real) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Clínica Estomatológica Dra. Yisel" />
+    <meta property="og:description" content="Atención personalizada en estética dental y urgencias en Santiago de Cuba. Más de 15 años de experiencia." />
+    <meta property="og:image" content="assets/img/banner.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <!-- Favicon -->
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
     
@@ -17,6 +24,24 @@
     
     <!-- CSS principal -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Datos estructurados para buscadores -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Clínica Estomatológica Dra. Yisel",
+      "telephone": "+53 54964428",
+      "email": "y-clinic@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bloque 7 #52 Plan Novoa Micro 8",
+        "addressLocality": "Santiago de Cuba",
+        "addressCountry": "CU"
+      },
+      "sameAs": ["https://wa.me/5354964428"]
+    }
+    </script>
 </head>
 <body>
 
@@ -38,11 +63,12 @@
                     <li><a href="#testimonios">Testimonios</a></li>
                     <li><a href="#galeria">Antes y Después</a></li>
                     <li><a href="#faq">FAQ</a></li>
+                    <li><a href="catalogo.html">Catálogo completo</a></li>
                     <li><a href="#contacto" class="btn-cta-nav">Agendar cita</a></li>
                 </ul>
             </nav>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
+            <div class="menu-toggle" id="menuToggle" role="button" tabindex="0" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </div>
         </div>
     </header>
@@ -60,11 +86,10 @@
         <div class="container">
             <div class="sobre-grid">
                 <div class="sobre-texto">
-                    <h3>Hola, soy Yisel <br /> Tu estomatóloga de confianza</h3>
+                    <h2>Hola, soy Yisel <br /> Tu estomatóloga de confianza</h2>
                     <p>
-                        Soy odontóloga con más de <strong>10 años de experiencia</strong>
-                        en estética dental, implantología y ortodoncia. Pero más que mi
-                        título, lo que me define es mi forma de trabajar: sin prisas,
+                        Soy estomatóloga con más de <strong>15 años de experiencia</strong>
+                        en estética dental. Pero más que mi título, lo que me define es mi forma de trabajar: sin prisas,
                         con total transparencia y poniendo tu bienestar por encima de todo.
                     </p>
                     <p>
@@ -74,15 +99,14 @@
                         a tu medida, explicándote cada opción hasta que te sientas seguro/a.
                     </p>
                     <p>
-                        Mi formación incluye <strong>certificación en Ortodoncia Invisible</strong>
-                        y un <strong>Máster en Implantología Avanzada</strong>. Pero lo que
+                        Mi formación incluye <strong>certificación en Estomatología</strong> pero lo que
                         más me enorgullece es ver cómo mis pacientes recuperan la confianza
                         para sonreír.
                     </p>
                     <p class="sobre-firma">— Dra. Yisel</p>
                 </div>
                 <div class="sobre-foto">
-                    <img src="assets/img/avatar.jpg" alt="Dra. Yisel" />
+                    <img src="assets/img/avatar.jpg" alt="Dra. Yisel" loading="lazy" />
                 </div>
             </div>
         </div>
@@ -96,26 +120,55 @@
             <h2 class="section-title">Lo que hago con pasión y excelencia</h2>
             <p class="section-sub">Soluciones integrales para tu salud bucal</p>
             <div class="servicios-grid">
+
                 <div class="servicio-card">
-                    <i class="fas fa-smile"></i>
-                    <h4>Diseño de Sonrisa</h4>
-                    <p>Carillas, blanqueamiento y armonización facial. Mi especialidad favorita porque veo el cambio en tu mirada.</p>
+                    <i class="fas fa-tooth" aria-hidden="true"></i>
+                    <h4>Obturación Temporal</h4>
+                    <p>Protección inmediata mientras llega el tratamiento definitivo.</p>
                 </div>
+
                 <div class="servicio-card">
-                    <i class="fas fa-tooth"></i>
-                    <h4>Implantes Dentales</h4>
-                    <p>Recupera tu sonrisa con implantes de máxima calidad. Yo misma realizo todo el proceso.</p>
+                    <i class="fas fa-smile" aria-hidden="true"></i>
+                    <h4>Resinas Simples y Compuestas</h4>
+                    <p>Restauración estética y funcional para caries, fracturas o desgaste.</p>
                 </div>
+
                 <div class="servicio-card">
-                    <i class="fas fa-braces"></i>
-                    <h4>Ortodoncia Invisible</h4>
-                    <p>Alineadores transparentes. Corrige tu sonrisa sin brackets y con total comodidad.</p>
+                    <i class="fas fa-syringe" aria-hidden="true"></i>
+                    <h4>Resinas Complejas (Reconstrucción)</h4>
+                    <p>Devolvemos la anatomía perdida con técnicas avanzadas.</p>
                 </div>
+
                 <div class="servicio-card">
-                    <i class="fas fa-heartbeat"></i>
-                    <h4>Odontología General</h4>
-                    <p>Revisiones, limpiezas y tratamientos de conducto. Tu salud bucal al día con el mejor cuidado.</p>
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <h4>Amalgamas</h4>
+                    <p>Fortaleza y durabilidad probada para las zonas de mayor desgaste.</p>
                 </div>
+
+                <div class="servicio-card">
+                    <i class="fas fa-hand-sparkles" aria-hidden="true"></i>
+                    <h4>Limpiezas Profesionales (Profilaxis)</h4>
+                    <p>Más que una limpieza, una inversión en tu salud general.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <i class="fas fa-teeth-open" aria-hidden="true"></i>
+                    <h4>Prótesis Totales y Parciales</h4>
+                    <p>Recupera tu sonrisa y tu confianza con una nueva dentadura.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <i class="fas fa-smile-wink" aria-hidden="true"></i>
+                    <h4>Puentes Fijos Anteriores</h4>
+                    <p>Devuelve la armonía de tu sonrisa sin necesidad de cirugía.</p>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 36px;">
+                <a href="catalogo.html" class="btn-primary" style="background: #1f8a9e; border-radius: 50px; padding: 14px 40px; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-list-ul" aria-hidden="true"></i> Ver catálogo completo de servicios
+                </a>
             </div>
         </div>
     </section>
@@ -134,7 +187,7 @@
                     <div class="detalle">Paciente desde 2023</div>
                 </div>
                 <div class="testimonio">
-                    <p>"Tuve un accidente y perdí un diente. Ella me atendió el mismo día, me calmó y en 2 meses ya tenía mi implante. Parece magia."</p>
+                    <p>"Tuve un accidente y me partí un diente. Ella me atendió el mismo día, me calmó y en a penas 2 horas ya tenía mi diente restablecido. Parece magia."</p>
                     <div class="autor">— Roberto G.</div>
                     <div class="detalle">Implante dental</div>
                 </div>
@@ -213,7 +266,7 @@
 
             <div style="text-align: center; margin-top: 40px;">
                 <a href="#contacto" class="btn-primary" style="background: #1f8a9e; border-radius: 50px; padding: 14px 40px;">
-                    <i class="fas fa-calendar-check"></i> ¿Quieres un cambio así? Agenda tu cita
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i> ¿Quieres un cambio así? Agenda tu cita
                 </a>
             </div>
         </div>
@@ -228,20 +281,20 @@
             <p class="section-sub">Resuelvo tus dudas antes de la cita</p>
 
             <div class="faq-item">
-                <h4><span>¿Atiendes tú misma a todos los pacientes?</span> <i class="fas fa-chevron-down"></i></h4>
-                <p>Sí, al 100%. Yo realizo todas las consultas, diagnósticos y tratamientos. No hay asistentes ni otros odontólogos que te atiendan sin mi supervisión. Mi nombre es mi garantía.</p>
+                <h4><span>¿Atiendes tú misma a todos los pacientes?</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></h4>
+                <p>Sí, al 100%. Yo realizo todas las consultas, diagnósticos y tratamientos. Mi nombre es mi garantía.</p>
             </div>
             <div class="faq-item">
-                <h4><span>¿Tienes precios más económicos que otras clínicas?</span> <i class="fas fa-chevron-down"></i></h4>
+                <h4><span>¿Tienes precios más económicos que otras clínicas?</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></h4>
                 <p>No soy la opción más barata, pero sí la que te ofrece calidad garantizada y materiales de primera. Prefiero hacer un excelente trabajo a hacer muchos trabajos rápidos. Ofrezco financiamiento sin intereses para tratamientos largos.</p>
             </div>
             <div class="faq-item">
-                <h4><span>¿Cuánto dura una consulta?</span> <i class="fas fa-chevron-down"></i></h4>
+                <h4><span>¿Cuánto dura una consulta?</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></h4>
                 <p>Entre 45 minutos y 1 hora. No tengo prisas. Necesito conocerte, revisarte bien y resolver todas tus dudas. Tu tiempo es valioso y el mío también, por eso lo aprovechamos al máximo.</p>
             </div>
             <div class="faq-item">
-                <h4><span>¿Qué pasa si tengo miedo al dentista?</span> <i class="fas fa-chevron-down"></i></h4>
-                <p>Es normal. Yo trabajo con sedación consciente (gas y óxido nitroso) para que estés relajada/o durante el tratamiento. También te explico cada sonido y cada herramienta antes de usarla. El miedo se va cuando entiendes lo que pasa.</p>
+                <h4><span>¿Qué pasa si tengo miedo al dentista?</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></h4>
+                <p>Es normal. Yo trabajo con sedación consciente para que estés relajada/o durante el tratamiento. También te explico cada sonido y cada herramienta antes de usarla. El miedo se va cuando entiendes lo que pasa.</p>
             </div>
         </div>
     </section>
@@ -253,7 +306,7 @@
         <div class="container">
             <div style="text-align: center; margin-bottom: 24px;">
                 <h2 style="font-size: 2rem; font-weight: 600; color: #08303d; margin-bottom: 6px;">
-                    <i class="fas fa-map-pin" style="color: #1f8a9e; margin-right: 12px;"></i> ¿Cómo llegar?
+                    <i class="fas fa-map-pin" style="color: #1f8a9e; margin-right: 12px;" aria-hidden="true"></i> ¿Cómo llegar?
                 </h2>
                 <p style="color: #4d6a7a; font-size: 1.05rem;">
                     Encuéntranos fácilmente. ¡Te esperamos con una sonrisa!
@@ -283,28 +336,29 @@
 
             <div class="contacto-grid">
                 <div class="contacto-info">
-                    <h3><i class="fas fa-phone-alt" style="color:#1f8a9e;"></i> Contáctame</h3>
+                    <h3><i class="fas fa-phone-alt" style="color:#1f8a9e;" aria-hidden="true"></i> Contáctame</h3>
                     <p>Puedes escribirme o llamarme directamente. Yo misma respondo todos los mensajes.</p>
                     <ul>
-                        <li><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/5354964428" target="_blank">+5354964428</a></li>
-                        <li><i class="fas fa-phone"></i> <strong>Teléfono:</strong> 5354964428</li>
-                        <li><i class="fas fa-envelope"></i> <strong>Email:</strong> y-clinic@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Bloque 5 Plan Novoa Micro 8</li>
+                        <li><i class="fab fa-whatsapp" aria-hidden="true"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/5354964428" target="_blank" rel="noopener">+5354964428</a></li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> <strong>Teléfono:</strong> 5354964428</li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> <strong>Email:</strong> y-clinic@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <strong>Dirección:</strong> Bloque 7 #52 Plan Novoa Micro 8</li>
+                        <li><i class="fas fa-clock" aria-hidden="true"></i> <strong>Horario:</strong> 9:00 am – 3:00 pm</li>
                     </ul>
-                    <a href="https://wa.me/5354964428" target="_blank" class="btn-primary">
-                        <i class="fab fa-whatsapp"></i> Escríbeme ahora
+                    <a href="https://wa.me/5354964428" target="_blank" rel="noopener" class="btn-primary">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Escríbeme ahora
                     </a>
                 </div>
 
                 <div class="contacto-urgencia">
-                    <h4><i class="fas fa-exclamation-triangle"></i> ¿Urgencia dental?</h4>
+                    <h4><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> ¿Urgencia dental?</h4>
                     <p>
                         Si tienes dolor intenso, sangrado o fractura, no esperes.
                         Atiendo urgencias el mismo día, incluso en fines de semana.
                     </p>
                     <p><strong>📞 Llámame ya:</strong> +53 54964428</p>
                     <a href="tel:+5354964428" class="btn-urgencia">
-                        <i class="fas fa-phone"></i> Llamar ahora
+                        <i class="fas fa-phone" aria-hidden="true"></i> Llamar ahora
                     </a>
                 </div>
             </div>
@@ -323,7 +377,10 @@
                         Atención personalizada y de excelencia para toda la familia.
                     </p>
                     <p style="color:#6a8e9e; font-size:0.9rem;">
-                        <i class="fas fa-map-marker-alt"></i> Bloque 5 Plan Novoa Miicro 8
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bloque 7 #52 Plan Novoa Micro 8
+                    </p>
+                    <p style="color:#6a8e9e; font-size:0.9rem; margin-top: 4px;">
+                        <i class="fas fa-clock" aria-hidden="true"></i> 9:00 am – 3:00 pm
                     </p>
                 </div>
                 <div>
@@ -333,6 +390,7 @@
                     <a href="#testimonios">Testimonios</a>
                     <a href="#galeria">Antes y Después</a>
                     <a href="#faq">Preguntas frecuentes</a>
+                    <a href="catalogo.html">Catálogo completo</a>
                 </div>
                 <div>
                     <h4>Legal</h4>
