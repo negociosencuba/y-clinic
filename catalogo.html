@@ -48,20 +48,22 @@
 
         img { max-width: 100%; }
 
-        /* ===== BANNER ===== */
+        /* ===== BANNER - MÁS PEQUEÑO Y CENTRADO ===== */
         .banner-header {
             width: 100%;
-            margin-bottom: 20px; /* Reducido de 40px a 20px */
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 0 20px;
         }
 
         .banner-header img {
-            width: 100%;
+            width: 70%; /* 70% del ancho de la página */
+            max-width: 700px; /* Límite para que no se estire demasiado en pantallas grandes */
             height: auto;
-            max-height: 220px; /* Altura máxima reducida */
-            object-fit: cover; /* Recorta la imagen para ajustarse */
             display: block;
-            border-radius: 0; /* Sin bordes redondeados como en index */
-            box-shadow: none; /* Sin sombra para que sea más limpio */
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         /* ===== ENCABEZADO ===== */
@@ -367,6 +369,12 @@
         }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .banner-header img {
+                width: 90%; /* Un poco más ancho en tablets */
+            }
+        }
+
         @media (max-width: 600px) {
             .catalogo-header h1 {
                 font-size: 2rem;
@@ -382,8 +390,8 @@
                 padding: 20px 16px;
             }
             .banner-header img {
-                border-radius: 0;
-                max-height: 140px; /* Aún más pequeño en móvil */
+                width: 100%; /* Ocupa todo el ancho en móvil */
+                border-radius: 12px;
             }
         }
     </style>
@@ -391,7 +399,7 @@
 <body>
 
     <!-- ========================================= -->
-    <!-- BANNER PRINCIPAL - MÁS PEQUEÑO -->
+    <!-- BANNER PRINCIPAL - 70% DE ANCHO, CENTRADO -->
     <!-- ========================================= -->
     <div class="banner-header">
         <img src="assets/img/banner.webp" alt="Dra. Yisel Clínica Estomatológica" loading="lazy" />
