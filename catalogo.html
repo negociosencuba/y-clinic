@@ -51,15 +51,17 @@
         /* ===== BANNER ===== */
         .banner-header {
             width: 100%;
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Reducido de 40px a 20px */
         }
 
         .banner-header img {
             width: 100%;
             height: auto;
+            max-height: 220px; /* Altura máxima reducida */
+            object-fit: cover; /* Recorta la imagen para ajustarse */
             display: block;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 0; /* Sin bordes redondeados como en index */
+            box-shadow: none; /* Sin sombra para que sea más limpio */
         }
 
         /* ===== ENCABEZADO ===== */
@@ -381,6 +383,7 @@
             }
             .banner-header img {
                 border-radius: 0;
+                max-height: 140px; /* Aún más pequeño en móvil */
             }
         }
     </style>
@@ -388,7 +391,7 @@
 <body>
 
     <!-- ========================================= -->
-    <!-- BANNER PRINCIPAL -->
+    <!-- BANNER PRINCIPAL - MÁS PEQUEÑO -->
     <!-- ========================================= -->
     <div class="banner-header">
         <img src="assets/img/banner.webp" alt="Dra. Yisel Clínica Estomatológica" loading="lazy" />
