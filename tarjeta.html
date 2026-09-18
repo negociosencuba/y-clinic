@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Y-Clinic | Clinica Estomatológica · Tarjeta Digital</title>
+<title>Y-Clinic | Clínica estomatológica  · Tarjeta Digital</title>
 <style>
 :root{
   --navy:#105224;
@@ -329,18 +329,17 @@ body{
 
 <div class="footer">
   <div class="footer-line"><span></span><span></span><span></span></div>
-  <strong>Y-Clinic | Clinica Estomatológica</strong>
+  <strong>Y-Clinic | Clínica estomatológica </strong>
   <small>Diseñado por TechSolutions Cuba · 2026</small>
 </div>
 
 </div>
 <script>
 function __shareCard(){
-  var vName = "Boutique Bella";
-  var vTag = "Belleza · Estilo · Feminidad";
+  var vName = "Y-Clinic | Clínica estomatológica ";
   var url = window.location.href;
   if(navigator.share){
-    navigator.share({ title: vName, text: vTag ? (vName+' — '+vTag) : vName, url: url }).catch(function(){});
+    navigator.share({ title: vName, text: vName, url: url }).catch(function(){});
   } else if(navigator.clipboard){
     navigator.clipboard.writeText(url).then(function(){
       __toastShare('🔗 Enlace copiado — pégalo donde quieras compartirlo');
