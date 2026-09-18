@@ -92,6 +92,8 @@ body{
 .btn-primary .icon{width:44px;height:44px;border-radius:13px;}
 .btn-primary .icon svg{width:21px;height:21px;}
 .btn-primary .label{font-family:Sora,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-weight:800;}
+.share-btn{display:block;width:100%;margin-top:12px;padding:13px;border:none;border-radius:14px;background:linear-gradient(135deg,#105224,#662121);color:#fff;font-family:Sora,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 12px 26px -14px rgba(10,30,66,.7);}
+.share-btn:active{transform:scale(0.98);}
 .hero-mini-mark{width:44px;height:44px;margin:0 0 12px;border:1px solid rgba(255,255,255,.4);border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.14);font-size:20px;color:#fff;backdrop-filter:blur(8px);}
 .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
 .hero-meta span{font-size:9px;font-weight:700;letter-spacing:.3px;color:rgba(255,255,255,.9);padding:6px 8px;border-radius:999px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);}
@@ -309,6 +311,8 @@ body{
     </a></div>
 </div>
 
+<div class="sec-contact" style="padding-top:0;"><button type="button" class="share-btn" onclick="__shareCard()">🔗 Compartir tarjeta</button></div>
+
 
     <div class="sec-cta" style="background:#f5f7fa;">
       <div class="section-label">
@@ -330,4 +334,27 @@ body{
 </div>
 
 </div>
+<script>
+function __shareCard(){
+  var vName = "Boutique Bella";
+  var vTag = "Belleza · Estilo · Feminidad";
+  var url = window.location.href;
+  if(navigator.share){
+    navigator.share({ title: vName, text: vTag ? (vName+' — '+vTag) : vName, url: url }).catch(function(){});
+  } else if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(function(){
+      __toastShare('🔗 Enlace copiado — pégalo donde quieras compartirlo');
+    }).catch(function(){ prompt('Copia el enlace de esta tarjeta:', url); });
+  } else {
+    prompt('Copia el enlace de esta tarjeta:', url);
+  }
+}
+function __toastShare(msg){
+  var t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#1c2735;color:#fff;padding:11px 18px;border-radius:12px;font-size:13px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:999;max-width:90vw;text-align:center;';
+  document.body.appendChild(t);
+  setTimeout(function(){ t.remove(); }, 2800);
+}
+</script>
 </body></html>
