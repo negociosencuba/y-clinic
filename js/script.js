@@ -1,158 +1,194 @@
 /**
  * ============================================
- * SCRIPT.JS - Cl�nica Estomatol�gica Dra. Yisel
+ * SCRIPT.JS - Clínica Estomatológica Dra. Yisel
+ * (codificación UTF-8)
  * ============================================
  */
+document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
 
-document.addEventListener('DOMContentLoaded', function() {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ==========================================
-    // 1. FAQ - Acorde�n interactivo
+    // 1. Header: sombra al hacer scroll + botón "subir"
     // ==========================================
-    const faqItems = document.querySelectorAll('.faq-item');
+    var header = document.querySelector('header');
+    var toTop = document.getElementById('toTop');
 
-    const abrirFaq = function(question, answer, icon) {
-        answer.style.display = 'block';
-        question.setAttribute('aria-expanded', 'true');
-        if (icon) icon.className = 'fas fa-chevron-up';
-    };
+    function onScroll() {
+        var y = window.pageYOffset || document.documentElement.scrollTop;
+        if (header) header.classList.toggle('scrolled', y > 8);
+        if (toTop) toTop.classList.toggle('show', y > 600);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-    const cerrarFaq = function(question, answer, icon) {
-        answer.style.display = 'none';
-        question.setAttribute('aria-expanded', 'false');
-        if (icon) icon.className = 'fas fa-chevron-down';
-    };
-
-    faqItems.forEach((item, index) => {
-        const question = item.querySelector('h4');
-        const answer = item.querySelector('p');
-        const icon = question.querySelector('i');
-
-        // Hacerla enfocable y anunciable como control expandible
-        question.setAttribute('tabindex', '0');
-        question.setAttribute('role', 'button');
-
-        if (index === 0) {
-            abrirFaq(question, answer, icon);
-        } else {
-            cerrarFaq(question, answer, icon);
-        }
-
-        const toggleFaq = function() {
-            const isOpen = answer.style.display === 'block';
-
-            faqItems.forEach((otherItem) => {
-                const otherQuestion = otherItem.querySelector('h4');
-                const otherAnswer = otherItem.querySelector('p');
-                const otherIcon = otherQuestion.querySelector('i');
-                cerrarFaq(otherQuestion, otherAnswer, otherIcon);
-            });
-
-            if (!isOpen) {
-                abrirFaq(question, answer, icon);
-            }
-        };
-
-        question.addEventListener('click', toggleFaq);
-
-        // Soporte de teclado: Enter y Espacio abren/cierran la respuesta
-        question.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-                e.preventDefault();
-                toggleFaq();
-            }
+    if (toTop) {
+        toTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
         });
-    });
+    }
 
     // ==========================================
-    // 2. Men� hamburguesa para m�viles
+    // 2. Menú hamburguesa (móvil)
     // ==========================================
-    const menuToggle = document.getElementById('menuToggle');
-    const nav = document.querySelector('nav');
+    var menuToggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mainNav');
+
+    function setMenu(open) {
+        if (!menuToggle || !nav) return;
+        nav.classList.toggle('active', open);
+        menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menuToggle.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+        var icon = menuToggle.querySelector('i');
+        if (icon) icon.className = open ? 'fas fa-times' : 'fas fa-bars';
+    }
 
     if (menuToggle && nav) {
-        const toggleMenu = function() {
-            const isOpen = nav.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            const icon = menuToggle.querySelector('i');
-            if (icon) {
-                icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
-            }
-        };
-
-        menuToggle.addEventListener('click', toggleMenu);
-
-        // Soporte de teclado: Enter y Espacio activan el menú igual que un clic
-        menuToggle.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-                e.preventDefault();
-                toggleMenu();
+        menuToggle.addEventListener('click', function () {
+            setMenu(!nav.classList.contains('active'));
+        });
+        nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () { setMenu(false); });
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && nav.classList.contains('active')) {
+                setMenu(false);
+                menuToggle.focus();
             }
         });
+        document.addEventListener('click', function (e) {
+            if (nav.classList.contains('active') && !nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                setMenu(false);
+            }
+        });
+    }
 
-        nav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                nav.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                const icon = menuToggle.querySelector('i');
-                if (icon) icon.className = 'fas fa-bars';
+    // ==========================================
+    // 3. FAQ: solo una respuesta abierta a la vez
+    // ==========================================
+    var faqs = document.querySelectorAll('.faq-item');
+    faqs.forEach(function (item) {
+        item.addEventListener('toggle', function () {
+            if (!item.open) return;
+            faqs.forEach(function (other) {
+                if (other !== item) other.open = false;
             });
         });
-    }
-
-    // ==========================================
-    // 3. Smooth scroll para enlaces internos
-    // ==========================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const headerHeight = document.querySelector('header')?.offsetHeight || 60;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
     });
 
     // ==========================================
-    // 4. A�o actual en el footer (autom�tico)
+    // 4. Revelado suave de secciones
     // ==========================================
-    const footerYear = document.querySelector('.footer-copy');
-    if (footerYear) {
-        const currentYear = new Date().getFullYear();
-        footerYear.innerHTML = footerYear.innerHTML.replace('2026', currentYear);
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+        var revealObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function (el) { revealObs.observe(el); });
+    } else {
+        reveals.forEach(function (el) { el.classList.add('visible'); });
     }
 
     // ==========================================
-    // 5. FUNCIONALIDAD "VER M�S" EN SERVICIOS
+    // 5. Enlace activo según la sección visible
     // ==========================================
-    const botonesVerMas = document.querySelectorAll('.btn-ver-mas');
+    function trackSections(linkSelector) {
+        var links = Array.prototype.slice.call(document.querySelectorAll(linkSelector));
+        if (!links.length || !('IntersectionObserver' in window)) return;
 
-    botonesVerMas.forEach(function(boton) {
-        boton.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const card = this.closest('.servicio-card');
-            const detalle = card.querySelector('.servicio-detalle');
-            const icono = this.querySelector('i');
-
-            if (detalle.style.display === 'none' || detalle.style.display === '') {
-                detalle.style.display = 'block';
-                this.innerHTML = 'Ver menos <i class="fas fa-chevron-up"></i>';
-            } else {
-                detalle.style.display = 'none';
-                this.innerHTML = 'Ver m&aacute;s <i class="fas fa-chevron-down"></i>';
+        var map = {};
+        links.forEach(function (link) {
+            var href = link.getAttribute('href') || '';
+            var hash = href.indexOf('#') > -1 ? href.slice(href.indexOf('#')) : '';
+            if (hash.length > 1 && (href.charAt(0) === '#' || href.indexOf(location.pathname.split('/').pop()) === 0)) {
+                var target = document.querySelector(hash);
+                if (target) map[target.id] = link;
             }
+        });
+
+        var ids = Object.keys(map);
+        if (!ids.length) return;
+
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                links.forEach(function (l) { l.classList.remove('active'); });
+                if (map[entry.target.id]) map[entry.target.id].classList.add('active');
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+
+        ids.forEach(function (id) { obs.observe(document.getElementById(id)); });
+    }
+    trackSections('nav a[href^="#"]:not(.btn-cta-nav)');
+    trackSections('.categorias-nav a');
+
+    // ==========================================
+    // 6. Año actual en el pie de página
+    // ==========================================
+    var year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+
+    // ==========================================
+    // 7. Catálogo: "Ver más / Ver menos"
+    // ==========================================
+    var botonesVerMas = document.querySelectorAll('.btn-ver-mas');
+
+    function setDetalle(boton, abrir) {
+        var card = boton.closest('.servicio-card');
+        var detalle = card && card.querySelector('.servicio-detalle');
+        if (!detalle) return;
+        detalle.classList.toggle('abierto', abrir);
+        boton.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+        boton.querySelector('span').textContent = abrir ? 'Ver menos' : 'Ver más';
+    }
+
+    botonesVerMas.forEach(function (boton) {
+        boton.addEventListener('click', function () {
+            setDetalle(boton, boton.getAttribute('aria-expanded') !== 'true');
         });
     });
 
-    console.log(' Cl�nica Estomatol�gica Dra. Yisel cargada correctamente.');
+    // Si llegan desde el inicio con un enlace a un servicio concreto, se abre su detalle
+    function abrirDesdeHash() {
+        if (!location.hash || !botonesVerMas.length) return;
+        var card = document.querySelector(location.hash);
+        var boton = card && card.querySelector('.btn-ver-mas');
+        if (boton) setDetalle(boton, true);
+    }
+    abrirDesdeHash();
+    window.addEventListener('hashchange', abrirDesdeHash);
+
+    // ==========================================
+    // 8. Galería antes/después: ampliar imagen
+    // ==========================================
+    var lightbox = document.getElementById('lightbox');
+    if (lightbox && typeof lightbox.showModal === 'function') {
+        var lbImg = lightbox.querySelector('img');
+        var lbCap = lightbox.querySelector('.lightbox-cap');
+
+        document.querySelectorAll('.caso-imagenes img').forEach(function (img) {
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+            var abrir = function () {
+                lbImg.src = img.currentSrc || img.src;
+                lbImg.alt = img.alt;
+                lbCap.textContent = img.alt;
+                lightbox.showModal();
+            };
+            img.addEventListener('click', abrir);
+            img.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(); }
+            });
+        });
+
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-close')) lightbox.close();
+        });
+    }
 });
