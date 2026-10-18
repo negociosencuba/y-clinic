@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://negociosencuba.github.io/y-clinic/sitemap.xml
